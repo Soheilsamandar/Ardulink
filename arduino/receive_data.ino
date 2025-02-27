@@ -12,8 +12,8 @@ void loop() {
   if (Serial.available() > 0) {
     String data = Serial.readStringUntil('\n');
     int commaindex = data.indexOf(',');
-    int data = data.substring(0, commaindex).toInt();
-    Xpos = map(data, 0, 640, 0, 180);
+    int x = data.substring(0, commaindex).toInt();
+    Xpos = map(x, 0, 640, 0, 180);
     servox.write(Xpos);
   }
 }
